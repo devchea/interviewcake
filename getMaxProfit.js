@@ -11,9 +11,9 @@ const getMaxProfit = (stockPrices) => {
   return Math.max(...maxProfit);
 }
 
-// const getMaxProfit = (stockPrices) => {
+const getMaxProfit = (stockPrices) => {
 
-// }
+}
 
 // Tests
 
