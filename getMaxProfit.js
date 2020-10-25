@@ -1,19 +1,19 @@
-// const getMaxProfit = (stockPrices) => {
-//   let maxProfit = [];
-
-//   for (let i = 0; i < stockPrices.length - 1; i++) {
-//     for (let j = i + 1; j < stockPrices.length; j++) {
-//       const profit = stockPrices[j] - stockPrices[i]
-//         maxProfit.push(profit)
-//     }
-//   }
-//   console.log("maxProfit is", maxProfit);
-//   return Math.max(...maxProfit);
-// }
-
 const getMaxProfit = (stockPrices) => {
+  let maxProfit = [];
 
+  for (let i = 0; i < stockPrices.length - 1; i++) {
+    for (let j = i + 1; j < stockPrices.length; j++) {
+      const profit = stockPrices[j] - stockPrices[i]
+        maxProfit.push(profit)
+    }
+  }
+  console.log("maxProfit is", maxProfit);
+  return Math.max(...maxProfit);
 }
+
+// const getMaxProfit = (stockPrices) => {
+
+// }
 
 // Tests
 
