@@ -13,6 +13,9 @@
 
 const getMaxProfit = (stockPrices) => {
   let maxProfit = []
+  for (let i = 0; i < stockPrices.length; i++) {
+    
+  }
 }
 
 // Tests
