@@ -14,7 +14,7 @@
 const getMaxProfit = (stockPrices) => {
   let maxProfit = []
   for (let i = 0; i < stockPrices.length; i++) {
-    
+
   }
 }
 
@@ -25,10 +25,10 @@ const getMaxProfit = (stockPrices) => {
 // let expected = 4;
 // assertEqual(actual, expected, desc);
 
-desc = 'price goes down then up';
-actual = getMaxProfit([7, 2, 8, 9]);
-expected = 7;
-assertEqual(actual, expected, desc);
+// desc = 'price goes down then up';
+// actual = getMaxProfit([7, 2, 8, 9]);
+// expected = 7;
+// assertEqual(actual, expected, desc);
 
 // desc = 'price goes up all day';
 // actual = getMaxProfit([1, 6, 7, 9]);
