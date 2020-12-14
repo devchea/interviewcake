@@ -12,9 +12,16 @@
 // }
 
 const getMaxProfit = (stockPrices) => {
-  let maxProfit = []
-  for (let i = 0; i < stockPrices.length; i++) {
-
+  let maxProfit = 0
+  let minPrice = stockPrices[0]
+  for (let i = 0; i < stockPrices.length - 1; i++) {
+    const currentPrice = stockPrices[i]
+    const lowestPrice = Math.min(stockPrices[i], stockPrices[i+1])
+    const highestPrice = Math.max(stockPrices[i], stockPrices[i+1])
+    console.log('lp:',lowestPrice);
+    console.log("hp:", highestPrice);
+    // const profit = highestPrice - lowestPrice
+    // return profit
   }
 }
 
@@ -25,10 +32,10 @@ const getMaxProfit = (stockPrices) => {
 // let expected = 4;
 // assertEqual(actual, expected, desc);
 
-// desc = 'price goes down then up';
-// actual = getMaxProfit([7, 2, 8, 9]);
-// expected = 7;
-// assertEqual(actual, expected, desc);
+desc = 'price goes down then up';
+actual = getMaxProfit([7, 2, 8, 9]);
+expected = 7;
+assertEqual(actual, expected, desc);
 
 // desc = 'price goes up all day';
 // actual = getMaxProfit([1, 6, 7, 9]);

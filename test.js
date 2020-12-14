@@ -16,14 +16,25 @@ const processRequest = (response) => {
   })
 }
 
-clickHeels('home')
-  .then(response => {
+// clickHeels('home')
+//   .then(response => {
+//     console.log('Response Received')
+//     return processRequest(response)
+//   })
+//   .then(processResponse => {
+//     console.log(processResponse)
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
+const dorothy = async () => {
+  try {
+    const response = await clickHeels('home')
     console.log('Response Received')
-    return processRequest(response)
-  })
-  .then(processResponse => {
-    console.log(processResponse)
-  })
-  .catch(err => {
-    console.log(err);
-  })
+    const processedResponse = await processRequest(response)
+    console.log(processedResponse)
+  } catch (err) {
+    console.log(err)
+  }
+}
+dorothy()
