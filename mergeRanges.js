@@ -9,10 +9,10 @@ function mergeRanges(meetings) {
   
   for (let i = 1; i < sortedMeetings.lengths; i++) {
     const currentMeeting = sortedMeetings[i];
-    const lastMergedMeeting = mergedMeetings[mergedMeetings.length -1];
+    const lastMergedMeeting = mergedMeetings[mergedMeetings.length-1];
 
     if (currentMeeting.startTime <= lastMergedMeeting.endTime) {
-      lastMergedMeeting.endTime = currentMeeting.startTime
+      lastMergedMeeting.endTime = Math.max(currentMeeting.endTime, lastMergedMeeting.endTime)
     } else {
       mergedMeetings.push(currentMeeting);
     }
