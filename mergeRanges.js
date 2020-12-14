@@ -5,24 +5,29 @@ function mergeRanges(meetings) {
   });
   console.log("sortedMeetings:", sortedMeetings);
 
-  const mergedMeetings = []
-
-  for (let i = 0; i < sortedMeetings.length; i++ ) {
-    const tempMeetingObj = sortedMeetings[0]
-    const currentMeetingObj = sortedMeetings[i]
-   
-
-    console.log("tempMeeintObj", tempMeetingObj);
-    console.log("currentMeetingObj", currentMeetingObj);
-  }
+  const mergedMeetings = [sortedMeetings[0]]
   
+  for (let i = 1; i < sortedMeetings.lengths; i++) {
+    const currentMeeting = sortedMeetings[i];
+    const lastMergedMeeting = mergedMeetings[mergedMeetings.length -1];
+
+    if (currentMeeting.startTime <= lastMergedMeeting.endTime) {
+      lastMergedMeeting.endTime = Math.max(
+        currentMeeting.endTime,
+        lastMergedMeeting.endTime
+      );
+    } else {
+      mergedMeetings.push(currentMeeting);
+    }
+  }
   return mergedMeetings
+
 }
 
-let desc = 'meetings overlap';
-let actual = mergeRanges([{ startTime: 1, endTime: 3 }, { startTime: 2, endTime: 4 }]);
-let expected = [{ startTime: 1, endTime: 4 }];
-assertArrayEquals(actual, expected, desc);
+// let desc = 'meetings overlap';
+// let actual = mergeRanges([{ startTime: 1, endTime: 3 }, { startTime: 2, endTime: 4 }]);
+// let expected = [{ startTime: 1, endTime: 4 }];
+// assertArrayEquals(actual, expected, desc);
 
 // desc = 'meetings touch';
 // actual = mergeRanges([{ startTime: 5, endTime: 6 }, { startTime: 6, endTime: 8 }]);
@@ -70,20 +75,20 @@ assertArrayEquals(actual, expected, desc);
 // ];
 // assertArrayEquals(actual, expected, desc);
 
-// desc = 'sample input';
-// actual = mergeRanges([
-//   { startTime: 0, endTime: 1 },
-//   { startTime: 3, endTime: 5 },
-//   { startTime: 4, endTime: 8 },
-//   { startTime: 10, endTime: 12 },
-//   { startTime: 9, endTime: 10 },
-// ]);
-// expected = [
-//   { startTime: 0, endTime: 1 },
-//   { startTime: 3, endTime: 8 },
-//   { startTime: 9, endTime: 12 },
-// ];
-// assertArrayEquals(actual, expected, desc);
+desc = 'sample input';
+actual = mergeRanges([
+  { startTime: 0, endTime: 1 },
+  { startTime: 3, endTime: 5 },
+  { startTime: 4, endTime: 8 },
+  { startTime: 10, endTime: 12 },
+  { startTime: 9, endTime: 10 },
+]);
+expected = [
+  { startTime: 0, endTime: 1 },
+  { startTime: 3, endTime: 8 },
+  { startTime: 9, endTime: 12 },
+];
+assertArrayEquals(actual, expected, desc);
 
 function assertArrayEquals(a, b, desc) {
   // Sort the keys in each meeting to avoid
