@@ -4,54 +4,29 @@ class WordCloudData {
     this.populateWordsToCounts(inputString);
   }
 
-
   populateWordsToCounts(inputString) {
-    //set word start idx and word length to find the word
-    let curWordStartIdx = 0
-    let curWordLength = 0
-    for (let i = 0; i <= inputString.length; i++) {
-      const char = inputString[i]
-
-      if (this.isLetter(char)) {
-        if (curWordLength === 0) {
-          curWordStartIdx = i
-        }
-        curWordLength++
-      } else {
-        const word = inputString.slice(curWordStartIdx, curWordStartIdx + curWordLength)
-        //sends word to add to set
-        console.log(word);
-        this.addWordToMap(word)
-        curWordLength = 0
+    
+    console.log(inputString[0]);
+    for(let i = 0; i < inputString.length; i ++) {
+      if ( inputString[i]== 'I') {
+        console.log('hi');
       }
-    }
-    console.log(this.wordsToCounts);
-  }
-
-  //check set for word and increment if found or set value to 1 if not found
-  addWordToMap(word){
-    if (this.wordsToCounts.has(word)) {
-      this.wordsToCounts.set(word, this.wordsToCounts.get(word) + 1)
-    } else {
-      this.wordsToCounts.set(word, 1)
+      
     }
   }
 
-  isLetter(char) {
-    return 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(char) >= 0;
-  }
-
+  
 }
 
 
-// let desc = "simple sentence";
-// let actual = new WordCloudData("I like cake").wordsToCounts;
-// let expected = new Map([
-//   ["I", 1],
-//   ["like", 1],
-//   ["cake", 1],
-// ]);
-// assert(isMapsEqual(actual, expected), desc);
+let desc = "simple sentence";
+let actual = new WordCloudData("I like cake").wordsToCounts;
+let expected = new Map([
+  ["I", 1],
+  ["like", 1],
+  ["cake", 1],
+]);
+assert(isMapsEqual(actual, expected), desc);
 
 // desc = "longer sentence";
 // actual = new WordCloudData(
@@ -68,15 +43,15 @@ class WordCloudData {
 // ]);
 // assert(isMapsEqual(actual, expected), desc);
 
-desc = "punctuation";
-actual = new WordCloudData("Strawberry short cake? Yum!").wordsToCounts;
-expected = new Map([
-  ["cake", 1],
-  ["Strawberry", 1],
-  ["short", 1],
-  ["Yum", 1],
-]);
-assert(isMapsEqual(actual, expected), desc);
+// desc = "punctuation";
+// actual = new WordCloudData("Strawberry short cake? Yum!").wordsToCounts;
+// expected = new Map([
+//   ["cake", 1],
+//   ["Strawberry", 1],
+//   ["short", 1],
+//   ["Yum", 1],
+// ]);
+// assert(isMapsEqual(actual, expected), desc);
 
 // desc = "hyphenated Words";
 // actual = new WordCloudData("Dessert - mille-feuille cake").wordsToCounts;

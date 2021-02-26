@@ -1,20 +1,23 @@
 const hasPalindromePermutation = (theString) => {
-  const unpairedChar = new Set()
+  const oddCharCount = new Set()
 
-  for (let char of theString) {
-    if (unpairedChar.has(char)) {
-      unpairedChar.delete(char)
+  for(i = 0; i < theString.length; i++) {
+    const char = theString[i]
+
+    if (oddCharCount.has(char)) {
+      oddCharCount.delete(char)
+      
     } else {
-      unpairedChar.add(char)
+      oddCharCount.add(char)
+      
     }
   }
-  return unpairedChar.size >= 1
-  
-
+  console.log(oddCharCount.size);
+  return oddCharCount.size <= 1 ? true : false
 }
 
-let desc = "permutation with odd number of chars";
-assertEqual(hasPalindromePermutation("aabcbcd"), true, desc);
+// let desc = "permutation with odd number of chars";
+// assertEqual(hasPalindromePermutation("aabcbcd"), true, desc);
 
 // desc = "permutation with even number of chars";
 // assertEqual(hasPalindromePermutation("aabccbdd"), true, desc);
@@ -28,8 +31,8 @@ assertEqual(hasPalindromePermutation("aabcbcd"), true, desc);
 // desc = "empty string";
 // assertEqual(hasPalindromePermutation(""), true, desc);
 
-// desc = "one character string ";
-// assertEqual(hasPalindromePermutation("a"), true, desc);
+desc = "one character string ";
+assertEqual(hasPalindromePermutation("a"), true, desc);
 
 function assertEqual(a, b, desc) {
   if (a === b) {

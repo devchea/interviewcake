@@ -1,40 +1,21 @@
-const clickHeels = (location) => {
-  return new Promise((resolve, reject) => {
-    console.log(`I want to go to ${location}`)
-    if (location === 'home') {
-      resolve('Home is correct, let\'s go home')
-    } else {
-      reject('Sorry, we can only go home')
+const wordFormation = () => {
+  console.log('--------------------------');
+  const words = ["the", "word", "love", "scott", "finder", "dictionary"]
+  const letters = "fanierdow"
+  const wordMap = new Map()
+  
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+
+    for (let j = 0; j < word.length; j++) {
+      const letter = word[j];
+      
+      console.log(letter);
     }
-  })
-}
-
-const processRequest = (response) => {
-  return new Promise((resolve, reject) => {
-    console.log('Processing response')
-    resolve(`Extra information + ${response}`)
-  })
-}
-
-// clickHeels('home')
-//   .then(response => {
-//     console.log('Response Received')
-//     return processRequest(response)
-//   })
-//   .then(processResponse => {
-//     console.log(processResponse)
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   })
-const dorothy = async () => {
-  try {
-    const response = await clickHeels('home')
-    console.log('Response Received')
-    const processedResponse = await processRequest(response)
-    console.log(processedResponse)
-  } catch (err) {
-    console.log(err)
+    
   }
+  console.log(wordMap);
+
 }
-dorothy()
+
+wordFormation()
