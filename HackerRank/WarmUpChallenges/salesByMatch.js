@@ -3,7 +3,7 @@ const arr = [10, 20, 20, 10, 10, 30, 50, 10, 20]
 //ans = 9
 
 salesByMatch = (n, arr) => {
-    let count = 0
+    let pairs = 0
     const map = new Map()
 
     for (let i = 0; i < arr.length; i++) {
@@ -17,8 +17,8 @@ salesByMatch = (n, arr) => {
         }
         
     }
-    console.log(count);
-    console.log(map);
+
+    return pairs
 }
 
 salesByMatch(n, arr)
