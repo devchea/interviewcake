@@ -10,7 +10,7 @@ const wordFormation = () => {
     for (let j = 0; j < word.length; j++) {
       const letter = word[j];
       
-      console.log(letter);
+      
     }
     
   }

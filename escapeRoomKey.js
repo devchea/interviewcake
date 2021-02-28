@@ -20,7 +20,7 @@ const escapeRoomKey = () => {
 
                 //break if keypadLettersArr doesn't include wordChar
                 //if all are found, increase ansArr related to keypad idx
-                if (!keypadLettersArr.includes(key) || !keypadLettersArr.includes(wordChar)) {
+                if (!word.includes(key) || !keypadLettersArr.includes(wordChar)) {
                     break
                 } else if (k == word.length - 1) {
                     ansArr[i]++
