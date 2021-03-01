@@ -13,10 +13,8 @@ const countingValleys = (steps, path) => {
                 if (curStep == 0) {
                     numOfValleys++
                 }
-                console.log('up',curStep);
             } else if (pathArr[i] == 'D') {
                 curStep--
-                console.log('down', curStep);
             }
 
             i++
