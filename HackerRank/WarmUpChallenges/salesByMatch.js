@@ -10,7 +10,7 @@ salesByMatch = (n, arr) => {
         const num = arr[i];
 
         if (map.has(num)) {
-            count++
+            pairs++
             map.delete(num)
         } else {
             map.set(num, 1)
