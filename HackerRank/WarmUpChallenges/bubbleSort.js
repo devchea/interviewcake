@@ -1,45 +1,24 @@
 const bubbleSort = (arr) => {
     const newArr = arr
     let count = 0
-    let isSorted = false
-    
-    while (!isSorted) {
-        isSorted = true
-        
-        for (let j = 0; j < arr.length-1; j++) {
-            curIdx = newArr[j]
-            rightIdx = newArr[j+1]
-            let temp = []
-            console.log('Start', j);
-            if (curIdx > rightIdx) {
-                // console.log(newArr);
-                // console.log([curIdx,rightIdx] = [rightIdx, curIdx])
-                // console.log(`compare j:${curIdx} j+1: ${rightIdx}` );
-                // console.log('remove', newArr.splice(j, 1));
-                // newArr.splice(j, 1)
-                // console.log('newArr:', newArr);
-
-                // newArr.splice(j+1 ,0, ([curIdx,rightIdx] = [rightIdx, curIdx]) )
-                // isSorted = false
-                // console.log('if modded:', newArr);
-                // console.log()
-            } 
-            console.log('out if modded:', newArr);
-
-                console.log(`compare j:${newArr[j]} j+1: ${newArr[j+1]}` );
+   
+    for (let i = 0; i < newArr.length; i++) {
+        for (let j = 0; j < newArr.length - 1; j++) {
             
-            
-            // console.log("temp", temp)
-            // console.log("otherleft", arr.slice(j+1, ))
-            // // temp.concat(arr.splice(1,0)) 
-            
+            if (newArr[j] > newArr[j+1]) {
+                //assign temp to hold newArr[j]
+                let temp = newArr[j]
+                //move rightIdx to curIdx
+                newArr[j] = newArr[j+1]
+                //assign temp to curIdx
+                newArr[j+1] = temp
+                count++
+            }
         }
-        // console.log("TEMP", temp.splice(i, 1 ,arr[i]))
-        // console.log(temp);
-        console.log('NEXT While');
-        
     }
-    //
+    console.log(`Array is sorted in ${count} swaps.`);
+    console.log(`First Element: ${newArr[0]}`);
+    console.log(`Last Element: ${newArr[newArr.length-1]}`);
 }
 
 bubbleSort([6,4,1])
