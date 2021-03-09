@@ -1,28 +1,31 @@
 // const getMaxProfit = (stockPrices) => {
 //   let maxProfit = [];
 
-//   for (let i = 0; i < stockPrices.length - 1; i++) {
-//     for (let j = i + 1; j < stockPrices.length; j++) {
-//       const profit = stockPrices[j] - stockPrices[i]
-//         maxProfit.push(profit)
-//     }
-//   }
-//   console.log("maxProfit is", maxProfit);
-//   return Math.max(...maxProfit);
-// }
+
 
 const getMaxProfit = (stockPrices) => {
-  let maxProfit = 0
-  let minPrice = stockPrices[0]
-  for (let i = 0; i < stockPrices.length - 1; i++) {
-    const currentPrice = stockPrices[i]
-    const lowestPrice = Math.min(stockPrices[i], stockPrices[i+1])
-    const highestPrice = Math.max(stockPrices[i], stockPrices[i+1])
-    console.log('lp:',lowestPrice);
-    console.log("hp:", highestPrice);
-    // const profit = highestPrice - lowestPrice
-    // return profit
+
+  if (stockPrices.length < 2) {
+    throw new Error('Needs two prices')
   }
+  console.log(stockPrices);
+  let maxProfit = stockPrices[1] - stockPrices[0]
+  let minPrice = stockPrices[0]
+
+
+  for (let i = 1; i < stockPrices.length; i++) {
+    const curPrice = stockPrices[i];
+    const tempProfit = curPrice - minPrice
+    console.log(`curPrice is ${curPrice}, tempProfit is ${curPrice}-${minPrice}`);
+
+    maxProfit = Math.max(maxProfit, tempProfit)
+  
+    minPrice = Math.min(minPrice, curPrice)
+  }
+  return maxProfit
+  
+
+
 }
 
 // Tests
@@ -32,20 +35,20 @@ const getMaxProfit = (stockPrices) => {
 // let expected = 4;
 // assertEqual(actual, expected, desc);
 
-desc = 'price goes down then up';
-actual = getMaxProfit([7, 2, 8, 9]);
-expected = 7;
-assertEqual(actual, expected, desc);
+// desc = 'price goes down then up';
+// actual = getMaxProfit([7, 2, 8, 9]);
+// expected = 7;
+// assertEqual(actual, expected, desc);
 
 // desc = 'price goes up all day';
 // actual = getMaxProfit([1, 6, 7, 9]);
 // expected = 8;
 // assertEqual(actual, expected, desc);
 
-// desc = 'price goes down all day';
-// actual = getMaxProfit([9, 7, 4, 1]);
-// expected = -2;
-// assertEqual(actual, expected, desc);
+desc = 'price goes down all day';
+actual = getMaxProfit([9, 7, 4, 1]);
+expected = -2;
+assertEqual(actual, expected, desc);
 
 // desc = 'price stays the same all day';
 // actual = getMaxProfit([1, 1, 1, 1]);
