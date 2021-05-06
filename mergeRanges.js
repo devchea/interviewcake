@@ -17,6 +17,7 @@ function mergeRanges(meetings) {
       mergedMeetings.push(currentMeeting);
     }
   }
+  console.log(mergedMeetings)
   return mergedMeetings
 
 }
